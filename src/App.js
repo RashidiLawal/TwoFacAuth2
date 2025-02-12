@@ -5,8 +5,8 @@ import {
   createRoutesFromElements,
   Route, 
 } from 'react-router-dom';
-import RootLayout from "./components/RootLayout";
-import ProtectedRoute from "./components/ProtectedRoute";
+import RootLayout from "./components/common/RootLayout";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 import Loading from "./components/common/loading";
 import TwoFactorSetup from "./utils/TwoFaSetup";
 import TwoFactorVerify from "./utils/TwoFaVerify";
@@ -16,10 +16,13 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 
 console.log({
-  TwoFactorSetup,
-  TwoFactorVerify,
+  RootLayout,
+  ProtectedRoute,
+  Loading,
   Login,
-  Dashboard
+  Dashboard,
+  TwoFactorSetup,
+  TwoFactorVerify
 });
 
 const router = createBrowserRouter(
@@ -35,7 +38,7 @@ const router = createBrowserRouter(
       />
        <Route element={<ProtectedRoute />}>
       <Route 
-        path="login" 
+        path="/dashboard" 
         element={
           <React.Suspense fallback={<Loading />}>
            <Dashboard />
@@ -43,7 +46,7 @@ const router = createBrowserRouter(
         } 
       />
       <Route 
-        path="2fa/setup" 
+        path="/2fa/setup" 
         element={
           <React.Suspense fallback={<Loading />}>
             <TwoFactorSetup />
@@ -51,7 +54,7 @@ const router = createBrowserRouter(
         } 
       />
       <Route 
-        path="2fa/verify" 
+        path="/2fa/verify" 
         element={
           <React.Suspense fallback={<Loading />}>
             <TwoFactorVerify />

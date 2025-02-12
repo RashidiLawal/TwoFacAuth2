@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/auth-context';
+import {useAuth} from '../context/auth-context';
 import { GoogleLogin } from "react-google-login";
 
 const clientId = "178211860600-7g1j2dcmf480nnamrj62gghaonhuvb51.apps.googleusercontent.com";
